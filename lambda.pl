@@ -38,8 +38,8 @@ beta_reduction(app(M,N1), app(M,N2)) :- lexp(M), lexp(N1),
 beta_reduction(M,M) :- value(M), !.
 
 
-beta*(M, [], M) :- value(M).
-beta*(M1, L, M2) :- 
-  beta_reduction(M1,H), append([H], T, L), beta*(H, T, M2).
+beta(M, [], M) :- value(M).
+beta(M1, L, M2) :- 
+  beta_reduction(M1,H), append([H], T, L), beta(H, T, M2), !.
 
 
